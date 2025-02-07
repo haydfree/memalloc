@@ -1,6 +1,5 @@
 #include "memalloc.h"
 
-/* function to find free block of memory using block_meta linked list */
 MemoryBlockMeta* find_free_block(_HeapStart* hs, size_t size) {
     MemoryBlockMeta* cur = get_head(hs);
     while (cur != NULL) {
@@ -20,7 +19,6 @@ MemoryBlockMeta* traverse(_HeapStart* hs) {
     return cur;
 }
 
-/* request space from OS, add buffer for metadata, return ptr to buffer */
 MemoryBlockMeta* request_space(_HeapStart* hs, size_t size) {
     MemoryBlockMeta* block; 
     void* request;
