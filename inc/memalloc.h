@@ -36,6 +36,8 @@ void* mem_alloc(size_t size);
 void* mem_realloc(void* ptr, size_t size);
 void* mem_calloc(size_t num_elements, size_t element_size);
 
+void set_up();
+void tear_down();
 void test_find_free_block();
 void test_traverse();
 void test_request_space();

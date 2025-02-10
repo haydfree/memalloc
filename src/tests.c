@@ -1,13 +1,30 @@
 #include "memalloc.h"
 
+_HeapStart* hs;
+
+void set_up() {
+    init_heap_start();
+    hs = get_heap_start();
+}
+
+void tear_down() {
+    mem_free(hs);
+}
+
+void test_mem_alloc() {
+    size_t i;
+    set_up();
+
+
+    tear_down();
+}
+
 void test_find_free_block() {
-    _HeapStart* hs;
     MemoryBlockMeta* head;
     MemoryBlockMeta* res;
     size_t size = 4;
-
-    init_heap_start();
-    hs = get_heap_start();
+    
+    set_up();
     head = mem_alloc(sizeof(MemoryBlockMeta));
     head->size = size;
     head->next = NULL;
@@ -29,6 +46,7 @@ void test_find_free_block() {
     res = find_free_block(hs, size);
     assert(res == head);
 
+    mem_free(hs);
     printf("all find_free_block tests passed\n");
 }
 

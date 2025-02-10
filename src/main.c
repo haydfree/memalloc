@@ -115,7 +115,7 @@ void* mem_calloc(size_t num_elements, size_t element_size) {
 }
 
 int main() {
-    test_find_free_block();
+    test_mem_alloc();
     
     return 0;
 }
